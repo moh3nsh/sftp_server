@@ -1,0 +1,13 @@
+ version: '3'
+ services:
+  sftp-srv:
+    container_name: sftp-srv
+    image: atmoz/sftp:alpine-3.7
+    ports:
+      - "1222:22"
+    volumes:
+      - ./data/:/home/demo:rw
+      - ./data/:/home/moh3n:rw
+      - ./users.conf:/etc/sftp/users.conf:ro
+    restart: always
+
